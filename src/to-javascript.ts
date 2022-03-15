@@ -3,8 +3,6 @@ const { traverse } = require('./traverse');
 
 const babelVisitor = {};
 
-const toJavaScript = ast => {};
+const toJavaScript = (ast: any) => {};
 
-module.exports = {
-  toJavaScript,
-};
+export { toJavaScript };

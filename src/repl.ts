@@ -1,7 +1,7 @@
-const { prompt } = require('inquirer');
-const chalk = require('chalk');
+// import { prompt } from 'inquirer';
+import chalk from 'chalk';
 
-const { parseAndEvaluate } = require('./parse-and-evaluate');
+// import { parseAndEvaluate } from './parse-and-evaluate';
 
 const repl = async () => {};
 

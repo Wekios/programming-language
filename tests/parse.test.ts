@@ -1,17 +1,17 @@
 import { parse } from '../src/parse';
+import { Tokens } from '../src/types';
 
-describe(parse, () => {
-  it.skip('should return a token with the type of NumericLiteral for number tokens', () => {
-    const tokens = [{ type: 'Number', value: 2 }];
+describe('parse', () => {
+  it('should return a token with the type of NumericLiteral for number tokens', () => {
+    const tokens: Tokens[] = [{ type: 'Number', value: 2 }];
 
     const ast = { type: 'NumericLiteral', value: 2 };
 
     expect(parse(tokens)).toEqual(ast);
   });
 
-  // Exercise 3 Begin
   it.skip('should return a token with the type of StringLiteral for string tokens', () => {
-    const tokens = [{ type: 'String', value: 'hello' }];
+    const tokens: Tokens[] = [{ type: 'String', value: 'hello' }];
 
     const ast = { type: 'StringLiteral', value: 'hello' };
 
@@ -19,7 +19,7 @@ describe(parse, () => {
   });
 
   it.skip('should return a token with the type of NumericLiteral for number tokens', () => {
-    const tokens = [{ type: 'Name', value: 'x' }];
+    const tokens: Tokens[] = [{ type: 'Name', value: 'x' }];
 
     const ast = { type: 'Identifier', name: 'x' };
 
@@ -28,7 +28,7 @@ describe(parse, () => {
   // Exercise 3 End
 
   it.skip('should return an AST for a basic data structure', () => {
-    const tokens = [
+    const tokens: Tokens[] = [
       { type: 'Parenthesis', value: '(' },
       { type: 'Name', value: 'add' },
       { type: 'Number', value: 2 },
@@ -51,7 +51,7 @@ describe(parse, () => {
   });
 
   it.skip('should return an AST for a nested data structure', () => {
-    const tokens = [
+    const tokens: Tokens[] = [
       { type: 'Parenthesis', value: '(' },
       { type: 'Name', value: 'add' },
       { type: 'Number', value: 2 },

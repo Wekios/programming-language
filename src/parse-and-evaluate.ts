@@ -1,9 +1,9 @@
-const { tokenize } = require('./tokenize');
-const { parse } = require('./parse');
-const { evaluate } = require('./evaluate');
-const { log, pipe } = require('./utilities');
-const { parseProgram } = require('./parse-program');
-const { transform } = require('./transform');
+import { tokenize } from './tokenize';
+import { parse } from './parse';
+import { evaluate } from './evaluate';
+import { log, pipe } from './utilities';
+import { parseProgram } from './parse-program';
+import { transform } from './transform';
 
 const parseAndEvaluate = pipe(
   tokenize,
@@ -23,7 +23,9 @@ const parseAndEvaluateProgram = pipe(
   evaluate,
 );
 
-module.exports = {
+
+
+export = {
   parseAndEvaluate,
   tokenizeAndParse,
   parseAndEvaluateProgram,
