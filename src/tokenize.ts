@@ -1,5 +1,4 @@
-import type { Tokens } from './types';
-
+import type { IdentifierName, Token } from './types';
 import {
   isLetter,
   isWhitespace,
@@ -9,7 +8,7 @@ import {
 } from './identify';
 
 export const tokenize = (input: string) => {
-  const tokens: Tokens[] = [];
+  const tokens: Token[] = [];
   let cursor = 0;
 
   while (cursor < input.length) {
@@ -29,21 +28,6 @@ export const tokenize = (input: string) => {
       continue;
     }
 
-    if (isLetter(character)) {
-      let symbol = character;
-
-      while (isLetter(input[++cursor])) {
-        symbol += input[cursor];
-      }
-
-      tokens.push({
-        type: 'Name',
-        value: symbol,
-      });
-
-      continue;
-    }
-
     if (isQuote(character)) {
       let string = '';
 
@@ -57,6 +41,21 @@ export const tokenize = (input: string) => {
       });
 
       cursor++;
+      continue;
+    }
+
+    if (isLetter(character)) {
+      let symbol = character;
+
+      while (isLetter(input[++cursor])) {
+        symbol += input[cursor];
+      }
+
+      tokens.push({
+        type: 'Name',
+        value: symbol as IdentifierName,
+      });
+
       continue;
     }
 

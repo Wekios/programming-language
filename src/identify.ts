@@ -20,9 +20,9 @@ const isWhitespace = (
 const isNumber = (character: string | NumberValue): character is NumberValue =>
   NUMBER.test(`${character}`);
 
-const isOpeningParenthesis = (character: string) => character === '(';
+const isOpeningParenthesis = (character: any) => character === '(';
 
-const isClosingParenthesis = (character: string) => character === ')';
+const isClosingParenthesis = (character: any) => character === ')';
 
 function isParenthesis(
   character: string | ParenthesisValue,

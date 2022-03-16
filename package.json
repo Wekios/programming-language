@@ -7,7 +7,8 @@
     "dropbear": "bin/dropbear"
   },
   "scripts": {
-    "start": "node build/repl.js",
+    "start": "npm run build && node build/repl.js",
+    "build": "tsc",
     "dev": "tsc --watch",
     "test": "jest"
   },

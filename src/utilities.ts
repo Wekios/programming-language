@@ -7,11 +7,7 @@ const pipe =
 
 const log = (value: any) => tap(value, console.log);
 
-const peek = (array: any) => array[0];
-// const pop = (array: Array<>) => array.shift();
-
-function pop<T>(array: T[]) {
-  return array.shift();
-}
+const peek = <T>(array: T[]) => array[0];
+const pop = <T>(array: T[]) => array.shift();
 
 export { pipe, log, peek, pop, tap };

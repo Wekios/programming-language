@@ -1,6 +1,6 @@
 // import traverse from './traverse';
 
-const transform = (node: any) => {};
+const transform = (node: any) => node;
 
 const specialForms = {};
 

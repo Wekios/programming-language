@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-const { parseAndEvaluate } = require('../src');
+const { parseAndEvaluate } = require('../build');
 
 const fs = require('fs');
 
 const [command, ...args] = process.argv.slice(2);
 
 if (!command) {
-  const repl = require('../src/repl');
+  const repl = require('../build/repl');
   return repl();
 }
 

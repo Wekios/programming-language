@@ -5,28 +5,9 @@ import { log, pipe } from './utilities';
 import { parseProgram } from './parse-program';
 import { transform } from './transform';
 
-const parseAndEvaluate = pipe(
-  tokenize,
-  parse,
-  transform,
-  evaluate,
-);
+// transform,
+export const parseAndEvaluate = pipe(tokenize, parse, evaluate);
 
-const tokenizeAndParse = pipe(
-  tokenize,
-  parse,
-);
+export const tokenizeAndParse = pipe(tokenize, parse);
 
-const parseAndEvaluateProgram = pipe(
-  tokenize,
-  parseProgram,
-  evaluate,
-);
-
-
-
-export = {
-  parseAndEvaluate,
-  tokenizeAndParse,
-  parseAndEvaluateProgram,
-};
+export const parseAndEvaluateProgram = pipe(tokenize, parseProgram, evaluate);

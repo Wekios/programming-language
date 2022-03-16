@@ -1,3 +1,4 @@
+import { environment, identifiers } from './standard-library';
 export type ParenthesisValue = '(' | ')';
 export type WhitespaceValue = ' ';
 export type NumberValue = string;
@@ -15,7 +16,7 @@ export type NumberToken = {
 
 export type LetterToken = {
   type: 'Name';
-  value: string;
+  value: keyof typeof identifiers;
 };
 
 export type StringToken = {
@@ -23,4 +24,25 @@ export type StringToken = {
   value: string;
 };
 
-export type Tokens = ParenthesisToken | NumberToken | LetterToken | StringToken;
+export type Token = ParenthesisToken | NumberToken | LetterToken | StringToken;
+
+export type CallOperationName = keyof typeof environment;
+export type IdentifierName = keyof typeof identifiers;
+
+export type CallExpression = {
+  type: 'CallExpression';
+  name: CallOperationName;
+  arguments: AST[];
+};
+
+export type Literals = {
+  type: 'StringLiteral' | 'NumericLiteral';
+  value: string | number;
+};
+
+export type Identifier = {
+  type: 'Identifier';
+  name: IdentifierName;
+};
+
+export type AST = Literals | CallExpression | Identifier;

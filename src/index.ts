@@ -1,11 +1,6 @@
-const { tokenize } = require('./tokenize');
-const { parse } = require('./parse');
-const { evaluate } = require('./evaluate');
-const { parseAndEvaluate } = require('./parse-and-evaluate');
+import { tokenize } from './tokenize';
+import { parse } from './parse';
+import { evaluate } from './evaluate';
+import { parseAndEvaluate } from './parse-and-evaluate';
 
-module.exports = {
-  tokenize,
-  parse,
-  evaluate,
-  parseAndEvaluate,
-};
+export { tokenize, parse, evaluate, parseAndEvaluate };

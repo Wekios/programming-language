@@ -1,20 +1,21 @@
+import type { AST } from '../src/types';
 import { evaluate } from '../src/evaluate';
 
 describe(evaluate, () => {
-  it.skip('should fall back to returning a primitive numeric value', () => {
-    const ast = { type: 'NumericLiteral', value: 2 };
+  it('should fall back to returning a primitive numeric value', () => {
+    const ast: AST = { type: 'NumericLiteral', value: 2 };
 
     expect(evaluate(ast)).toBe(2);
   });
 
-  it.skip('should fall back to returning a primitive string value', () => {
-    const ast = { type: 'StringValue', value: 'Hello' };
+  it('should fall back to returning a primitive string value', () => {
+    const ast: AST = { type: 'StringLiteral', value: 'Hello' };
 
     expect(evaluate(ast)).toBe('Hello');
   });
 
-  it.skip('should be able to evaluate a single expression', () => {
-    const ast = {
+  it('should be able to evaluate a single expression', () => {
+    const ast: AST = {
       type: 'CallExpression',
       name: 'add',
       arguments: [
@@ -28,8 +29,8 @@ describe(evaluate, () => {
     expect(result).toBe(5);
   });
 
-  it.skip('should be able to evaluate a nested expression', () => {
-    const ast = {
+  it('should be able to evaluate a nested expression', () => {
+    const ast: AST = {
       type: 'CallExpression',
       name: 'add',
       arguments: [
@@ -51,13 +52,13 @@ describe(evaluate, () => {
     expect(result).toBe(6);
   });
 
-  it.skip('should be able to lookup identifiers in the environment', () => {
-    const ast = { type: 'Identifier', name: 'pi' };
+  it('should be able to lookup identifiers in the environment', () => {
+    const ast: AST = { type: 'Identifier', name: 'pi' };
     expect(evaluate(ast)).toBe(Math.PI);
   });
 
-  it.skip('should be able to highest number in a range', () => {
-    const ast = {
+  it('should be able to determine the highest number in a range', () => {
+    const ast: AST = {
       type: 'CallExpression',
       name: 'max',
       arguments: [
@@ -68,5 +69,19 @@ describe(evaluate, () => {
     };
 
     expect(evaluate(ast)).toBe(10);
+  });
+
+  it('should be able to determine the lowest number in a range', () => {
+    const ast: AST = {
+      type: 'CallExpression',
+      name: 'min',
+      arguments: [
+        { type: 'NumericLiteral', value: 2 },
+        { type: 'NumericLiteral', value: 1 },
+        { type: 'NumericLiteral', value: 10 },
+      ],
+    };
+
+    expect(evaluate(ast)).toBe(1);
   });
 });
