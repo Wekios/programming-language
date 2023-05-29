@@ -1,7 +1,9 @@
 import type { AST, CallExpression, Identifier } from './types';
 import { environment, identifiers } from './standard-library';
 
-const last = (collection: any) => collection[collection.length - 1];
+function last<T>(collection: T[]): T {
+  return collection[collection.length - 1];
+}
 
 const apply = (node: CallExpression) => {
   const fn = environment[node.name];

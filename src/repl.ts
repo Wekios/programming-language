@@ -18,10 +18,10 @@ const askQuestions = () => {
 const repl = async () => {
   try {
     const answers = await askQuestions();
-    const { COMMAND } = answers;
+    const command = answers.COMMAND as string;
 
-    if (COMMAND.trim()) {
-      console.log(chalk.yellow(parseAndEvaluate(COMMAND)));
+    if (command.trim()) {
+      console.log(chalk.yellow(parseAndEvaluate(command)));
     }
   } catch (error) {
     console.error(error);
